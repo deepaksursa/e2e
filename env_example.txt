@@ -1,0 +1,30 @@
+# Environment Selection
+TEST_ENV=dev
+
+# API Authentication
+API_KEY=your_api_key_here
+API_SECRET=your_api_secret_here
+
+# Test User Credentials
+TEST_ADMIN_USERNAME=admin@example.com
+TEST_ADMIN_PASSWORD=SecurePassword123!
+TEST_USER_USERNAME=user@example.com
+TEST_USER_PASSWORD=UserPassword123!
+
+# Browser Configuration
+BROWSER=chromium
+HEADLESS=true
+SLOW_MO=0
+
+# Test Execution
+PARALLEL_WORKERS=4
+RETRY_FAILED_TESTS=3
+
+# Reporting
+RECORD_VIDEO=false
+SCREENSHOT_ON_FAILURE=true
+ALLURE_RESULTS_DIR=allure-results
+
+# Custom Application Settings
+BASE_URL=https://example-app-dev.com
+API_URL=https://api.example-app-dev.com/v1 

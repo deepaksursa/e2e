@@ -1,0 +1,84 @@
+---
+# ParaBank Account Registration Test Cases
+
+test_cases:
+  - id: TC101
+    title: Successful account registration
+    description: Verify that a new user can successfully register an account
+    preconditions:
+      - User is on the ParaBank homepage
+      - User has not previously registered
+    test_data:
+      first_name: "John"
+      last_name: "Doe"
+      address: "123 Main St"
+      city: "Anytown"
+      state: "CA"
+      zip_code: "12345"
+      phone: "555-555-5555"
+      ssn: "123-45-6789"
+      username: "johndoe"
+      password: "Password123"
+      confirm: "Password123"
+    steps:
+      - Click on the "Register" link in the top right corner
+      - Enter First Name
+      - Enter Last Name
+      - Enter Address
+      - Enter City
+      - Enter State
+      - Enter Zip Code
+      - Enter Phone Number
+      - Enter SSN
+      - Enter Username (not previously used)
+      - Enter Password
+      - Enter Confirm Password (matching Password)
+      - Click the "REGISTER" button
+    expected_results:
+      - Registration is successful
+      - Success message is displayed: "Your account was created successfully. You are now logged in."
+      - User is automatically logged in
+      - User is redirected to the Accounts Overview page
+    postconditions:
+      - User account is created in the system
+      - User is logged into the new account
+    status: Ready
+    priority: High
+    automation_status: To Be Automated
+  
+  - id: TC102
+    title: Registration with existing username
+    description: Verify system behavior when attempting to register with an already existing username
+    preconditions:
+      - User is on the ParaBank homepage
+      - An account with username "existingUser" already exists
+    test_data:
+      first_name: "Jane"
+      last_name: "Smith"
+      address: "456 Oak St"
+      city: "Sometown"
+      state: "NY"
+      zip_code: "67890"
+      phone: "555-123-4567"
+      ssn: "987-65-4321"
+      username: "existingUser"
+      password: "Password123"
+      confirm: "Password123"
+    steps:
+      - Click on the "Register" link
+      - Fill in all fields with valid information
+      - Enter an existing username in the Username field
+      - Enter valid Password and Confirm Password
+      - Click the "REGISTER" button
+    expected_results:
+      - Registration fails
+      - Error message is displayed: "This username already exists."
+      - User remains on the registration page
+      - Form data is preserved (except password fields)
+    postconditions:
+      - No new account is created
+      - User remains on registration page
+    status: Ready
+    priority: High
+    automation_status: To Be Automated
+   

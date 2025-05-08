@@ -1,0 +1,45 @@
+{
+    "baseUrl": "https://parabank.parasoft.com/parabank",
+    "apiUrl": "https://parabank.parasoft.com/parabank/services/bank",
+    "timeout": 30000,
+    "retries": 2,
+    "users": {
+        "default": {
+            "username": "john",
+            "password": "demo",
+            "firstName": "John",
+            "lastName": "Doe"
+        },
+        "new_user": {
+            "firstName": "Test",
+            "lastName": "User",
+            "address": "123 Test St",
+            "city": "Testville",
+            "state": "TS",
+            "zipCode": "12345",
+            "phone": "555-123-4567",
+            "ssn": "123-45-6789",
+            "username": "testuser",
+            "password": "Password123",
+            "confirm": "Password123"
+        },
+        "updated_profile": {
+            "firstName": "Updated",
+            "lastName": "User",
+            "address": "456 New St",
+            "city": "Newville",
+            "state": "NS",
+            "zipCode": "67890",
+            "phone": "555-987-6543"
+        }
+    },
+    "browserOptions": {
+        "defaultBrowser": "chromium",
+        "headless": false,
+        "slowMo": 100,
+        "viewport": {
+            "width": 1366,
+            "height": 768
+        }
+    }
+} 

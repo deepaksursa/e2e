@@ -1,0 +1,44 @@
+{
+    "baseUrl": "https://example-app-dev.com",
+    "apiUrl": "https://api.example-app-dev.com/v1",
+    "timeout": 30000,
+    "retries": 2,
+    "users": {
+        "admin": {
+            "username": "admin@example.com",
+            "password": "DevPassword123!"
+        },
+        "customer": {
+            "username": "customer@example.com",
+            "password": "DevPassword123!"
+        },
+        "guest": {
+            "username": "guest@example.com",
+            "password": "DevPassword123!"
+        }
+    },
+    "features": {
+        "enablePaymentGateway": true,
+        "enableNotifications": true,
+        "enableAnalytics": false
+    },
+    "dataSeeding": {
+        "enabled": true,
+        "cleanupAfterTest": true
+    },
+    "browserOptions": {
+        "defaultBrowser": "chromium",
+        "headless": true,
+        "slowMo": 0,
+        "ignoreHTTPSErrors": true,
+        "viewport": {
+            "width": 1920,
+            "height": 1080
+        }
+    },
+    "reporting": {
+        "screenshotOnFailure": true,
+        "videoRecording": false,
+        "tracing": true
+    }
+} 

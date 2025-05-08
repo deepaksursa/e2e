@@ -1,0 +1,92 @@
+---
+# ParaBank Login Test Cases
+
+test_cases:
+  - id: TC001
+    title: Login with valid credentials
+    description: Verify that a user can successfully login with valid credentials
+    preconditions:
+      - User has a registered account in ParaBank
+      - User is on the ParaBank homepage
+    test_data:
+      username: "john"
+      password: "demo"
+    steps:
+      - Enter valid username in the Username field
+      - Enter valid password in the Password field
+      - Click the "LOG IN" button
+    expected_results:
+      - User is successfully logged in
+      - User is redirected to the Accounts Overview page
+      - User's name is displayed in the welcome message
+      - Account summary information is displayed
+    postconditions:
+      - User remains logged in until explicitly logging out or session timeout
+    status: Ready
+    priority: High
+    automation_status: Automated
+  
+  - id: TC002
+    title: Login with invalid credentials
+    description: Verify system behavior when invalid login credentials are provided
+    preconditions:
+      - User is on the ParaBank homepage
+    test_data:
+      username: "invalid_user"
+      password: "invalid_password"
+    steps:
+      - Enter invalid username in the Username field
+      - Enter invalid password in the Password field
+      - Click the "LOG IN" button
+    expected_results:
+      - Login fails
+      - Error message is displayed: "The username and password could not be verified."
+      - User remains on the login page
+    postconditions:
+      - User is not logged in
+    status: Ready
+    priority: High
+    automation_status: Automated
+  
+ 
+  
+  
+  - id: TC004
+    title: Login page UI verification
+    description: Verify all UI elements on the login page
+    preconditions:
+      - User is on the ParaBank homepage
+    steps:
+      - Observe all elements on the login page
+    expected_results:
+      - Username field is present and empty
+      - Password field is present, empty, and masked
+      - "'LOG IN' button is present and enabled"
+      - "'Forgot login info?' link is present"
+      - "'Register' link is present"
+      - ParaBank logo is displayed
+    postconditions:
+      - No change to application state
+    status: Ready
+    priority: Low
+    automation_status: Automated
+  
+   
+    title: Remember login information
+    description: Verify browser can save login information if user allows it
+    preconditions:
+      - User is on the ParaBank homepage
+      - User has a registered account
+    steps:
+      - Enter valid username and password
+      - Allow browser to save login information when prompted
+      - Log out
+      - Return to login page
+    expected_results:
+      - Browser fills in saved username and password
+      - User can login by just clicking the "LOG IN" button
+    postconditions:
+      - Login information is saved in browser
+    status: Ready
+    priority: Low
+    automation_status: Not Automated 

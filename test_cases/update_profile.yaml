@@ -1,0 +1,66 @@
+---
+# ParaBank Update Profile Test Cases
+
+test_cases:
+  - id: TC201
+    title: Successfully update account contact information
+    description: Verify that a user can update their contact information successfully
+    preconditions:
+      - User is registered with ParaBank
+      - User is logged in
+      - User is on the Update Profile page
+    test_data:
+      first_name: "John"
+      last_name: "Updated"
+      address: "456 New Street"
+      city: "New City"
+      state: "CA"
+      zip_code: "54321"
+      phone: "555-123-4567"
+    steps:
+      - Navigate to "Update Contact Info" page from the account services menu
+      - Update First Name field
+      - Update Last Name field
+      - Update Address field
+      - Update City field
+      - Update State field
+      - Update Zip Code field
+      - Update Phone Number field
+      - Click the "Update Profile" button
+    expected_results:
+      - Profile is successfully updated
+      - Success message is displayed: "Your updated address has been sent to the database."
+      - The updated information is saved in the system
+    postconditions:
+      - User contact information is updated in the system
+      - User remains logged in
+    status: Ready
+    priority: High
+    automation_status: To Be Automated
+  
+  - id: TC203
+    title: Change password successfully
+    description: Verify that a user can change their password successfully
+    preconditions:
+      - User is registered with ParaBank
+      - User is logged in
+    test_data:
+      old_password: "Password123"
+      new_password: "NewPassword456"
+      confirm_password: "NewPassword456"
+    steps:
+      - Navigate to "Change Password" page from account services menu
+      - Enter current password
+      - Enter new password
+      - Confirm new password
+      - Click the "Change Password" button
+    expected_results:
+      - Password is successfully changed
+      - Success message is displayed: "Password updated successfully"
+      - User can log in with the new password after logging out
+    postconditions:
+      - User password is updated in the system
+      - User remains logged in
+    status: Ready
+    priority: High
+    automation_status: To Be Automated 
