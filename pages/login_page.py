@@ -4,8 +4,8 @@ from pages.base_page import BasePage
 
 logger = logging.getLogger(__name__)
 
-class ParaBankLoginPage(BasePage):
-    """Page object for the ParaBank Login page"""
+class LoginPage(BasePage):
+    """Page object for the Login page"""
     
     # Element locators
     USERNAME_INPUT = "input[name='username']"
@@ -17,10 +17,10 @@ class ParaBankLoginPage(BasePage):
     LOGOUT_LINK = "a[href*='logout.htm']"
     ACCOUNTS_OVERVIEW_TITLE = "#rightPanel h1"
     
-    @allure.step("Navigate to ParaBank login page")
+    @allure.step("Navigate to login page")
     def navigate(self):
-        """Navigate to the ParaBank login page"""
-        logger.info("Navigating to ParaBank login page")
+        """Navigate to the login page"""
+        logger.info("Navigating to login page")
         self.page.goto("https://parabank.parasoft.com/parabank/index.htm")
         self.wait_for_page_load()
         assert self.is_login_form_visible(), "Login page did not load correctly"

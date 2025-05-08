@@ -25,6 +25,7 @@ venv/
 ENV/
 env/
 .env
+e2e_venv/
 
 # IDE
 .idea/
@@ -38,6 +39,7 @@ htmlcov/
 .coverage
 coverage.xml
 *.cover
+test-result/
 
 # Logs
 *.log

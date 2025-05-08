@@ -3,14 +3,14 @@ import allure
 import requests
 from utils.api_helpers import APIHelpers
 
-@allure.feature("ParaBank API")
+@allure.feature("API Testing")
 @allure.story("API Endpoints")
-class TestParaBankAPI:
-    """Test suite for ParaBank API endpoints"""
+class TestAPI:
+    """Test suite for API endpoints"""
     
     @pytest.fixture(scope="class")
     def api_client(self, config):
-        """Create an API client for ParaBank"""
+        """Create an API client"""
         base_url = config["apiUrl"]
         return APIHelpers(base_url)
     
@@ -19,7 +19,7 @@ class TestParaBankAPI:
     @pytest.mark.smoke
     @pytest.mark.api
     def test_api_availability(self, api_client):
-        """Verify the ParaBank API endpoints are available"""
+        """Verify the API endpoints are available"""
         # Test customers endpoint
         response = api_client.get("/customers/12212")
         
@@ -30,7 +30,7 @@ class TestParaBankAPI:
         assert "application/json" in response.headers.get("Content-Type", ""), "API did not return JSON content type"
     
     @allure.title("Test bank accounts API endpoint")
-    @allure.severity(allure.severity_level.HIGH)
+    @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.api
     def test_accounts_endpoint(self, api_client, config):
         """Verify the accounts endpoint functionality"""

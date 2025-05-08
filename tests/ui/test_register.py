@@ -5,7 +5,7 @@ import allure
 import uuid
 import random
 from pathlib import Path
-from pages.parabank_register_page import ParaBankRegisterPage
+from pages.register_page import RegisterPage
 from utils.data_generator import DataGenerator
 from config.env import SCREENSHOTS_DIR
 
@@ -14,15 +14,15 @@ project_root = str(Path(__file__).parent.parent.parent.parent)
 if project_root not in sys.path:
     sys.path.append(project_root)
 
-@allure.feature("ParaBank Registration")
+@allure.feature("Registration")
 @allure.story("User Registration")
-class TestParaBankRegister:
-    """Test cases for ParaBank registration functionality"""
+class TestRegister:
+    """Test cases for registration functionality"""
     
     @pytest.fixture(autouse=True)
     def setup(self, page):
         """Setup for each test"""
-        self.register_page = ParaBankRegisterPage(page)
+        self.register_page = RegisterPage(page)
         self.register_page.navigate()
     
     @allure.title("Test successful user registration")

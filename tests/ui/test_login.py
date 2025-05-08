@@ -1,11 +1,11 @@
 import pytest
 import allure
-from pages.parabank_login_page import ParaBankLoginPage
+from pages.login_page import LoginPage
 
-@allure.feature("ParaBank")
-@allure.story("Authentication")
-class TestParaBankLogin:
-    """Test suite for ParaBank login functionality"""
+@allure.feature("Authentication")
+@allure.story("Login")
+class TestLogin:
+    """Test suite for login functionality"""
     
     @allure.title("User can login with valid credentials")
     @allure.severity(allure.severity_level.CRITICAL)
@@ -13,7 +13,7 @@ class TestParaBankLogin:
     def test_successful_login(self, page, config):
         """Verify that a user can login with valid credentials"""
         # Initialize page object
-        login_page = ParaBankLoginPage(page)
+        login_page = LoginPage(page)
         
         # Navigate to login page
         login_page.navigate()
@@ -37,7 +37,7 @@ class TestParaBankLogin:
     def test_invalid_login(self, page):
         """Verify that a user cannot login with invalid credentials"""
         # Initialize page object
-        login_page = ParaBankLoginPage(page)
+        login_page = LoginPage(page)
         
         # Navigate to login page
         login_page.navigate()
@@ -52,7 +52,7 @@ class TestParaBankLogin:
         error_message = login_page.get_error_message()
         assert error_message is not None, "No error message displayed for invalid login"
         
-        # Check for any of the possible error messages - ParaBank can show different messages
+        # Check for any of the possible error messages
         possible_error_texts = [
             "could not be verified",
             "invalid username",
@@ -72,7 +72,7 @@ class TestParaBankLogin:
     def test_logout(self, page, config):
         """Verify that a logged-in user can successfully log out"""
         # Initialize page object
-        login_page = ParaBankLoginPage(page)
+        login_page = LoginPage(page)
         
         # Navigate to login page
         login_page.navigate()

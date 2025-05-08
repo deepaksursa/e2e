@@ -4,8 +4,8 @@ from pages.base_page import BasePage
 
 logger = logging.getLogger(__name__)
 
-class ParaBankRegisterPage(BasePage):
-    """Page object for the ParaBank Registration page"""
+class RegisterPage(BasePage):
+    """Page object for the Registration page"""
     
     # Element locators
     FIRST_NAME_INPUT = "input[id='customer.firstName']"
@@ -23,10 +23,10 @@ class ParaBankRegisterPage(BasePage):
     ERROR_MESSAGE = ".error"
     SUCCESS_MESSAGE = "#rightPanel p"
     
-    @allure.step("Navigate to ParaBank registration page")
+    @allure.step("Navigate to registration page")
     def navigate(self):
-        """Navigate to the ParaBank registration page"""
-        logger.info("Navigating to ParaBank registration page")
+        """Navigate to the registration page"""
+        logger.info("Navigating to registration page")
         self.page.goto("https://parabank.parasoft.com/parabank/register.htm")
         self.wait_for_page_load()
         # Verify we're on the registration page
